@@ -5,7 +5,7 @@ import { findAtributos, createAtributos, deleteAtributo } from "../controllers/a
 const router = express.Router();
 
 router.get("/", findAtributos);
-router.post("/", createAtributos);
-router.delete("/:id", deleteAtributo);
+router.post("/", tokenValidated, createAtributos);
+router.delete("/:id", tokenValidated, deleteAtributo);
 
 export default router;

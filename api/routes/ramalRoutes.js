@@ -4,8 +4,8 @@ import { findRamais, createRamal, deleteRamal } from "../controllers/ramalContro
 
 const router = express.Router();
 
-router.get("/", findRamais);
-router.post("/", createRamal);
-router.delete("/:id", deleteRamal);
+router.get("/findRamais", findRamais);
+router.post("/createRamal", tokenValidated, reateRamal);
+router.delete("/:id", tokenValidated, deleteRamal);
 
 export default router;
