@@ -33,6 +33,7 @@ export const updatePaymentMethod = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: "Erro ao atualizar métodos" });
     }   
+};
 
 export const deletePaymentMethod = async (req, res) => {
     try {

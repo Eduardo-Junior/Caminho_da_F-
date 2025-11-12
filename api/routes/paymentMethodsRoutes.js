@@ -1,6 +1,6 @@
 import express from "express";
 
-import { findPaymentMethod, createPaymentMethod, deletePaymentMethod } from "../controllers/paymentMethodsModel.js";
+import { findPaymentMethod, createPaymentMethod, deletePaymentMethod } from "../controllers/paymentMethodsController.js";
 import { tokenValidated } from "../middlewares/auth.js";
 
 const router = express.Router();

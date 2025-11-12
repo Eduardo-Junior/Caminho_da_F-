@@ -33,7 +33,7 @@ export const updateAttributes = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: "Erro ao atualizar atributo" });
     }   
-
+};
 export const deleteAttributes = async (req, res) => {
     try {
         const { id } = req.params;

@@ -1,8 +1,6 @@
 import {sequelize} from '../database/db.js';
 import {DataTypes} from 'sequelize';
 
-//Solução para PDF - Integração com API do Wordpress
-//Verificar se arquivo está hosteado permanentemente com Wordpress
 
 export const Ramal = sequelize.define('Ramais', {
     id: {

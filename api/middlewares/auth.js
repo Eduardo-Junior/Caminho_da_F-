@@ -1,21 +1,21 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 
-export default function auth(req, res, next) {
-  const authHeader = req.headers["authorization"];
+export function tokenValidated(req, res, next) {
+  const authHeader = req.header("Authorization");
+  const token = authHeader?.replace("Bearer ", "");
 
-  const token = authHeader?.split(" ")[1];
-
-  if (!token)
+  if (!token) {
     return res.status(401).json({ message: "Token ausente" });
+  }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
-    
-  } catch (err) {
-    if (err.name === "TokenExpiredError")
-      return res.status(401).json({ message: "Token expirado" });
-    return res.status(403).json({ message: "Token inválido" });
+  } catch (error) {
+    console.error("Erro ao validar token:", error.message);
+    return res.status(403).json({ message: "Token inválido ou expirado" });
   }
 }
