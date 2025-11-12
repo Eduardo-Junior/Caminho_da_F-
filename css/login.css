@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+#logo{
+    cursor: pointer;
+}
+
+.nav-link{
+    font-weight: 600;
+    font-size: 0.9rem !important;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-item:hover{
+    color: rgb(87, 87, 87) !important;
+}
+
+
+.login-section{
+    height: 75dvh;
+}
+
+.btn-primary{
+    background-color: #015BA9;
+}
+
+.modal-header{
+    background-color: #015BA9;
+}
