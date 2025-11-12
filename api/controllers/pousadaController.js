@@ -31,6 +31,7 @@ export const createPousada = async (req, res) => {
       kmRef,
       atributos,
       pagamentos,
+      ramalId,
     } = req.body;
 
     const novaPousada = await Pousada.create({
@@ -44,6 +45,7 @@ export const createPousada = async (req, res) => {
       minCost,
       hasCredential,
       kmRef,
+      ramalId,
     });
 
     if (atributos && atributos.length) {
@@ -51,6 +53,10 @@ export const createPousada = async (req, res) => {
     }
     if (pagamentos && pagamentos.length) {
       await novaPousada.setPagamentos(pagamentos);
+    }
+
+    if (ramalId) {
+      await novaPousada.setRamal(ramalId);
     }
 
     const pousadaComRelacionamentos = await Pousada.findByPk(novaPousada.id, {
